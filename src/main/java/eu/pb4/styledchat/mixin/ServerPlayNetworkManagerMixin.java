@@ -28,7 +28,7 @@ public abstract class ServerPlayNetworkManagerMixin implements ExtPlayNetworkHan
     @Unique
     private ChatStyle styledChat$style;
 
-    @ModifyArg(method = "onDisconnected", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"))
+    @ModifyArg(method = "method_52415", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"))
     private Text styledChat_replaceDisconnectMessage(Text text) {
         return StyledChatStyles.getLeft(this.player);
     }

@@ -34,12 +34,12 @@ public class PlayerManagerMixin {
     private ServerPlayerEntity styledChat_temporaryPlayer = null;
 
     @Inject(method = "onPlayerConnect", at = @At(value = "HEAD"))
-    private void styledChat_storePlayer(ClientConnection connection, ServerPlayerEntity player, CallbackInfo ci) {
+    private void styledChat_storePlayer(ClientConnection connection, ServerPlayerEntity player, int latency, CallbackInfo ci) {
         this.styledChat_temporaryPlayer = player;
     }
 
     @Inject(method = "onPlayerConnect", at = @At("RETURN"))
-    private void styledChat_removeStoredPlayer(ClientConnection connection, ServerPlayerEntity player, CallbackInfo ci) {
+    private void styledChat_removeStoredPlayer(ClientConnection connection, ServerPlayerEntity player, int latency, CallbackInfo ci) {
         this.styledChat_temporaryPlayer = null;
     }
 
